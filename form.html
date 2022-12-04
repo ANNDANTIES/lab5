@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        section
+        {
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+        }
+        div{
+            width: 100%;
+            margin: 15px auto;
+        }
+        label{
+            display: block;
+            padding:20px;
+            font-size: 25px;
+        }
+        input{
+            width: 96%;
+            padding: 10px;
+            border: 1px red;
+            margin-left: 20px;
+            border-radius: 3px;
+        }
+        span
+        {
+            display: block;
+            margin-left: 20px;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+   <section>
+       <form action="">
+           <div>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" placeholder="fname">
+                <span></span>
+            </div>
+            <div>
+            <label for="mname">Middle name:</label>
+            <input type="text" id="mname" placeholder="mname">
+        </div>
+        <div>
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" placeholder="lname">
+        </div>
+            <div>
+               <label for="email">Email</label>
+               <input type="email" id="email" placeholder="Email-id">
+               <span></span>
+           </div>
+           <div>
+            <label for="number">Phone-Number</label>
+            <input type="tel" id="number" placeholder="Phone-Number">
+            <span></span>
+        </div>
+        <div>
+            <label for="pass">Create Password</label>
+            <input type="password" id="pass" placeholder="min 1 up,lw,sp char">
+            <span></span>
+        </div>
+       </form>
+   </section> 
+</body>
+</html>
+<script>
+    var fname= document.getElementById("fname");
+    var mname= document.getElementById("mname");
+    var lname= document.getElementById("lname");
+    var email=document.getElementById('email');
+    var number=document.getElementById('number');
+    var pass = document.getElementById('pass');
+    var span=document.getElementsByTagName('span');
+    fname.onkeydown = function()
+    {
+        const r1 = /^[A-Za-z]$/;
+        if(r1.test(fname.value))
+        {
+            span[0].innerText = "valid first name";
+            span[0].style.color = lime;
+        }
+        else
+        {
+            span[0].innerText = "invalid first name";
+            span[0].style.color = tomato;
+        }
+    }
+    mname.onkeydown = function()
+    {
+        const r2 = /^[A-Za-z]$/;
+        if(r2.test(mname.value))
+        {
+            span[1].innerText = "valid middle name";
+            span[1].style.color = lime;
+        }
+        else
+        {
+            span[1].innerText = "invalid middle name";
+            span[1].style.color = tomato;
+        }
+    }
+    lname.onkeydown = function()
+    {
+        const r3 = /^[A-Za-z]$/;
+        if(r3.test(lname.value))
+        {
+            span[2].innerText = "valid last name";
+            span[2].style.color = lime;
+        }
+        else
+        {
+            span[2].innerText = "invalid last name";
+            span[2].style.color = tomato;
+        }
+    }
+    email.onkeydown=function()
+    {
+       const regex1=/^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
+       if(regex1.test(email.value))
+       {
+         span[3].innerText="Your Email is Valid";
+         span[3].style.color="lime";  
+       }
+       else{
+           span[3].innerText="Invalid Email Id";
+           span[3].style.color="red";
+       }}
+       number.onkeydown=function()
+       {
+          const regnum= /^[0-9]{10}$/;
+          if(regnum.test(number.value))
+       {
+         span[4].innerText="Your Number is Valid";
+         span[4].style.color="lime";  
+       }
+       else{
+           span[4].innerText="Invalid Phone Number";
+           span[4].style.color="red";
+       }   
+       }
+       pass.onkeydown=function()
+       {
+
+          const regpass= /^([A-Z][a-z][0-9]]+)([A-Z][0-9][~\`!@#$%^&*()-_={}[]\|;:"<>,\.\/?])$/;
+          if(regpass.test(pass.value))
+       {
+         span[5].innerText="Your Number is Valid";
+         span[5].style.color="lime";  
+       }
+       else{
+           span[5].innerText="Invalid Phone Number";
+           span[5].style.color="red";
+       }   
+       }
+</script>
